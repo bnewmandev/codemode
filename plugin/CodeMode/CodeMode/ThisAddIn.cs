@@ -6,12 +6,25 @@ using System.Xml.Linq;
 using Word = Microsoft.Office.Interop.Word;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Word;
+using System.Drawing;
+using System.Drawing.Text;
 
 namespace CodeMode
 {
+
     public partial class ThisAddIn
     {
+        public List<string> listItems = new List<string>();
+        protected override Office.IRibbonExtensibility CreateRibbonExtensibilityObject()
+        {
+            InstalledFontCollection installedFontCollection = new InstalledFontCollection();
 
+            foreach (FontFamily font in installedFontCollection.Families)
+            {
+                listItems.Add(font.Name);
+            }
+            return new CodeModeXML();
+        }
 
         public static Word.Range initialLocation;
         public static string initialFont;
