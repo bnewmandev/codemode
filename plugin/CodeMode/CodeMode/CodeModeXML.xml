@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI onLoad="Ribbon_Load" xmlns="http://schemas.microsoft.com/office/2006/01/customui">
+  <ribbon>
+    <tabs>
+      <tab idMso="TabHome">
+        <group id="codeMode" label="Code Mode">
+          <toggleButton id="toggleCodeMode" onAction="toggleCodeMode_Click" description="Toggles Code Mode" label="Toggle Code Mode" size="large" />
+          <button id="selectCodeColor" onAction="selectCodeColor_Click" label="Select Code Colour" showImage="false" />
+          <button id="selectBackgroundColor" onAction="selectBackgroundColor_Click" label="Select Background Colour" showImage="false" />
+          <comboBox id="codeFont" maxLength="20" onChange="codeFont_TextChanged" label="Code Font" showImage="false" />
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>

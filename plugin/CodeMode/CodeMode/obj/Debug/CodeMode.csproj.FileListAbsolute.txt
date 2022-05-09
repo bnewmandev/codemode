@@ -1,0 +1,14 @@
+D:\repos\vb\word\codemode\plugin\CodeMode\CodeMode\bin\Debug\CodeMode.dll
+D:\repos\vb\word\codemode\plugin\CodeMode\CodeMode\bin\Debug\CodeMode.pdb
+D:\repos\vb\word\codemode\plugin\CodeMode\CodeMode\bin\Debug\CodeMode.dll.manifest
+D:\repos\vb\word\codemode\plugin\CodeMode\CodeMode\bin\Debug\CodeMode.vsto
+D:\repos\vb\word\codemode\plugin\CodeMode\CodeMode\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+D:\repos\vb\word\codemode\plugin\CodeMode\CodeMode\obj\Debug\CodeMode.csproj.AssemblyReference.cache
+D:\repos\vb\word\codemode\plugin\CodeMode\CodeMode\obj\Debug\CodeMode.Properties.Resources.resources
+D:\repos\vb\word\codemode\plugin\CodeMode\CodeMode\obj\Debug\CodeMode.csproj.GenerateResource.cache
+D:\repos\vb\word\codemode\plugin\CodeMode\CodeMode\obj\Debug\CodeMode.csproj.CoreCompileInputs.cache
+D:\repos\vb\word\codemode\plugin\CodeMode\CodeMode\obj\Debug\CodeMode.csproj.CopyComplete
+D:\repos\vb\word\codemode\plugin\CodeMode\CodeMode\obj\Debug\CodeMode.dll
+D:\repos\vb\word\codemode\plugin\CodeMode\CodeMode\obj\Debug\CodeMode.pdb
+D:\repos\vb\word\codemode\plugin\CodeMode\CodeMode\bin\Debug\CodeMode.dll.config
+D:\repos\vb\word\codemode\plugin\CodeMode\CodeMode\obj\Debug\CodeMode.FontItem.resources
