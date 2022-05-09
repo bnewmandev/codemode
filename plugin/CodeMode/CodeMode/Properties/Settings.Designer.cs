@@ -25,12 +25,37 @@ namespace CodeMode.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::Microsoft.Office.Interop.Word.FontClass CodeFont {
+        [global::System.Configuration.DefaultSettingValueAttribute("Courier New")]
+        public string CodeFont {
             get {
-                return ((global::Microsoft.Office.Interop.Word.FontClass)(this["CodeFont"]));
+                return ((string)(this["CodeFont"]));
             }
             set {
                 this["CodeFont"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CodeColor {
+            get {
+                return ((string)(this["CodeColor"]));
+            }
+            set {
+                this["CodeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CodeBgColor {
+            get {
+                return ((string)(this["CodeBgColor"]));
+            }
+            set {
+                this["CodeBgColor"] = value;
             }
         }
     }
