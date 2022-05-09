@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using Office = Microsoft.Office.Core;
+using Microsoft.VisualBasic;
 
 // TODO:  Follow these steps to enable the Ribbon (XML) item:
 
@@ -56,6 +57,7 @@ namespace CodeMode
         static WdColor codeColor;
         static WdColor bgColor;
 
+
         public CodeModeXML()
         {
 
@@ -76,14 +78,9 @@ namespace CodeMode
 
         public void Ribbon_Load(Office.IRibbonControl control)
         {
-            foreach (FontFamily font in FontFamily.Families)
-            {
-                Globals.ThisAddIn.listItems.Append(font.Name);
-            }
-        }
+            codeColor = (WdColor)Int32.Parse(Properties.Settings.Default.CodeColor);
+            bgColor = (WdColor)Int32.Parse(Properties.Settings.Default.CodeBgColor);
 
-        public void Load(Office.IRibbonControl control)
-        {
             foreach (FontFamily font in FontFamily.Families)
             {
                 Globals.ThisAddIn.listItems.Append(font.Name);
@@ -114,8 +111,9 @@ namespace CodeMode
 
                 string initialFont = initialLocation.Font.Name;
                 ThisAddIn.initialFont = initialFont;
-
-                initialLocation.Font.Name = "Courier New";
+                ThisAddIn.initialColor = initialLocation.Font.Color;
+                initialLocation.Font.Name = Properties.Settings.Default.CodeFont;
+                initialLocation.Font.Color = codeColor;
 
 
                 Debug.WriteLine(initialLocation.Start);
@@ -127,9 +125,10 @@ namespace CodeMode
                 fullCodeRange.Select();
                 fullCodeRange.NoProofing = 1;
                 fullCodeRange.Shading.ForegroundPatternColor = WdColor.wdColorAutomatic;
-                fullCodeRange.Shading.BackgroundPatternColor = (WdColor)2829099;
+                fullCodeRange.Shading.BackgroundPatternColor = bgColor;
                 Selection selection = Globals.ThisAddIn.Application.Selection;
                 selection.MoveRight();
+                selection.Font.Color = ThisAddIn.initialColor;
                 selection.InsertAfter(" ");
                 selection.Font.Name = ThisAddIn.initialFont;
                 selection.Shading.BackgroundPatternColor = WdColor.wdColorAutomatic;
@@ -145,9 +144,14 @@ namespace CodeMode
             colorPicker.ShowHelp = true;
             colorPicker.ShowDialog();
 
-            string colorString = colorPicker.Color.R.ToString() + colorPicker.Color.G.ToString() + colorPicker.Color.B.ToString();
-            codeColor = (WdColor)Int32.Parse(colorString);
+            int red = colorPicker.Color.R;
+            int green = colorPicker.Color.G;
+            int blue = colorPicker.Color.B;
 
+            int rgbColor = Information.RGB(red, green, blue);
+            codeColor = (WdColor)rgbColor;
+            Properties.Settings.Default.CodeColor = codeColor.ToString();
+            Properties.Settings.Default.Save();
         }
 
         public void selectBackgroundColor_Click(Office.IRibbonControl control)
@@ -156,14 +160,20 @@ namespace CodeMode
             colorPicker.AllowFullOpen = true;
             colorPicker.ShowHelp = true;
             colorPicker.ShowDialog();
+            int red = colorPicker.Color.R;
+            int green = colorPicker.Color.G;
+            int blue = colorPicker.Color.B;
 
-            string colorString = colorPicker.Color.R.ToString() + colorPicker.Color.G.ToString() + colorPicker.Color.B.ToString();
-            bgColor = (WdColor)Int32.Parse(colorString);
+            int rgbColor = Information.RGB(red, green, blue);
+            bgColor = (WdColor)rgbColor;
+            Properties.Settings.Default.CodeBgColor = bgColor.ToString();
+            Properties.Settings.Default.Save();
         }
 
-        public void codeFont_TextChanged(Office.IRibbonControl control)
+        public void codeFont_TextChanged(Office.IRibbonControl control, string label)
         {
-
+            Properties.Settings.Default.CodeFont = label;
+            Properties.Settings.Default.Save();
         }
 
 

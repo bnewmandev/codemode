@@ -8,6 +8,7 @@ using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Word;
 using System.Drawing;
 using System.Drawing.Text;
+using Microsoft.Office.Interop.Word;
 
 namespace CodeMode
 {
@@ -28,6 +29,7 @@ namespace CodeMode
 
         public static Word.Range initialLocation;
         public static string initialFont;
+        public static WdColor initialColor;
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
