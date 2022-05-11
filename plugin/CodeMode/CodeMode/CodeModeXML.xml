@@ -5,7 +5,6 @@
       <tab idMso="TabHome">
         <group id="codeMode" label="Code Mode">
           <toggleButton id="toggleCodeMode" onAction="toggleCodeMode_Click" description="Toggles Code Mode" label="Toggle Code Mode" size="large" />
-          <button id="selectCodeColor" onAction="selectCodeColor_Click" label="Select Code Colour" showImage="false" />
           <button id="selectBackgroundColor" onAction="selectBackgroundColor_Click" label="Select Background Colour" showImage="false" />
           <comboBox id="codeFont" onChange="codeFont_TextChanged" label="Code Font" showImage="false" getItemCount="getCount" getItemLabel="getLabel" />
         </group>

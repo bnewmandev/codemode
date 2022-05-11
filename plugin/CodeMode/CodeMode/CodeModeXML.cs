@@ -111,9 +111,8 @@ namespace CodeMode
 
                 string initialFont = initialLocation.Font.Name;
                 ThisAddIn.initialFont = initialFont;
-                ThisAddIn.initialColor = initialLocation.Font.Color;
                 initialLocation.Font.Name = Properties.Settings.Default.CodeFont;
-                initialLocation.Font.Color = codeColor;
+                initialLocation.Font.Color = WdColor.wdColorAutomatic;
 
 
                 Debug.WriteLine(initialLocation.Start);
@@ -128,7 +127,7 @@ namespace CodeMode
                 fullCodeRange.Shading.BackgroundPatternColor = bgColor;
                 Selection selection = Globals.ThisAddIn.Application.Selection;
                 selection.MoveRight();
-                selection.Font.Color = ThisAddIn.initialColor;
+                selection.Font.Color = WdColor.wdColorAutomatic;
                 selection.InsertAfter(" ");
                 selection.Font.Name = ThisAddIn.initialFont;
                 selection.Shading.BackgroundPatternColor = WdColor.wdColorAutomatic;
